@@ -42,36 +42,28 @@ window.renderStatistics = function (ctx, names, times) {
   }
 
   var maxTime = getMaxElement(times);
-  var barFirstPosition = function () {
-    return (CLOUD_X + BAR_GAP);
-  };
-  var gapBetweenBar = function () {
-    return ((BAR_WIDTH + BAR_GAP) * i);
-  };
-  var barHeightWithTime = function () {
-    return ((BAR_HEIGHT * times[i]) / maxTime);
-  };
 
-  var barYPosition = function () {
-    return (CLOUD_Y_DOWN - FONT_GAP);
-  };
-
-  function randomInteger(min, max) {
+  var getRandomColor = function (min, max) {
     var rand = min + Math.random() * (max + 1 - min);
     rand = Math.floor(rand);
     return 'rgba(0, 0, ' + rand + ', 1)';
-  }
+  };
 
   for (var i = 0; i < names.length; i++) {
+    var barFirstPosition = CLOUD_X + BAR_GAP;
+    var gapBetweenBar = (BAR_WIDTH + BAR_GAP) * i;
+    var barHeightWithTime = (BAR_HEIGHT * times[i]) / maxTime;
+    var barYPosition = CLOUD_Y_DOWN - FONT_GAP;
+
     ctx.fillStyle = '#000';
-    ctx.fillText(Math.round(times[i]), barFirstPosition() + gapBetweenBar(), barYPosition() - GAP * 2 - barHeightWithTime());
+    ctx.fillText(Math.round(times[i]), barFirstPosition + gapBetweenBar, barYPosition - GAP * 2 - barHeightWithTime);
     ctx.fillStyle = '#000';
-    ctx.fillText(names[i], barFirstPosition() + gapBetweenBar(), barYPosition() + GAP);
-    ctx.fillStyle = randomInteger(50, 255);
-    ctx.fillRect(barFirstPosition() + gapBetweenBar(), barYPosition() - GAP, BAR_WIDTH, -barHeightWithTime());
+    ctx.fillText(names[i], barFirstPosition + gapBetweenBar, barYPosition + GAP);
+    ctx.fillStyle = getRandomColor(50, 255);
+    ctx.fillRect(barFirstPosition + gapBetweenBar, barYPosition - GAP, BAR_WIDTH, -barHeightWithTime);
     if (names[i] === 'Вы') {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
-      ctx.fillRect(barFirstPosition() + gapBetweenBar(), barYPosition() - GAP, BAR_WIDTH, -barHeightWithTime());
+      ctx.fillRect(barFirstPosition + gapBetweenBar, barYPosition - GAP, BAR_WIDTH, -barHeightWithTime);
     }
   }
 };
