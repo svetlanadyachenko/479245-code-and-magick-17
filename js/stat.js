@@ -59,8 +59,7 @@ window.renderStatistics = function (ctx, names, times) {
     ctx.fillText(Math.round(times[i]), barFirstPosition + gapBetweenBar, barYPosition - GAP * 2 - barHeightWithTime);
     ctx.fillStyle = '#000';
     ctx.fillText(names[i], barFirstPosition + gapBetweenBar, barYPosition + GAP);
-    ctx.fillStyle = getRandomColor(50, 255);
-    ctx.fillRect(barFirstPosition + gapBetweenBar, barYPosition - GAP, BAR_WIDTH, -barHeightWithTime);
+    ctx.fillStyle = getRandomColor(10, 255);
     if (names[i] === 'Вы') {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     }
