@@ -63,7 +63,7 @@ window.renderStatistics = function (ctx, names, times) {
     ctx.fillRect(barFirstPosition + gapBetweenBar, barYPosition - GAP, BAR_WIDTH, -barHeightWithTime);
     if (names[i] === 'Вы') {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
-      ctx.fillRect(barFirstPosition + gapBetweenBar, barYPosition - GAP, BAR_WIDTH, -barHeightWithTime);
     }
+    ctx.fillRect(barFirstPosition + gapBetweenBar, barYPosition - GAP, BAR_WIDTH, -barHeightWithTime);
   }
 };
