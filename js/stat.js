@@ -56,12 +56,18 @@ window.renderStatistics = function (ctx, names, times) {
     return (CLOUD_Y_DOWN - FONT_GAP);
   };
 
+  function randomInteger(min, max) {
+    var rand = min + Math.random() * (max + 1 - min);
+    rand = Math.floor(rand);
+    return 'rgba(0, 0, ' + rand + ', 1)';
+  }
+
   for (var i = 0; i < names.length; i++) {
     ctx.fillStyle = '#000';
     ctx.fillText(Math.round(times[i]), barFirstPosition() + gapBetweenBar(), barYPosition() - GAP * 2 - barHeightWithTime());
     ctx.fillStyle = '#000';
     ctx.fillText(names[i], barFirstPosition() + gapBetweenBar(), barYPosition() + GAP);
-    ctx.fillStyle = 'blue';
+    ctx.fillStyle = randomInteger(50, 255);
     ctx.fillRect(barFirstPosition() + gapBetweenBar(), barYPosition() - GAP, BAR_WIDTH, -barHeightWithTime());
     if (names[i] === 'Вы') {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
