@@ -14,8 +14,8 @@ var COAT_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161
 var EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
 var WIZARD_QUANTITY = 4;
 
-var getRandomNumber = function (numberLength) {
-  return Math.floor(Math.random() * numberLength);
+var getRandomNumber = function (arrayLength) {
+  return Math.floor(Math.random() * arrayLength);
 };
 
 var wizards = [];
