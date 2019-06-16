@@ -18,9 +18,9 @@ var getRandomElement = function (array) {
   return array[Math.floor(Math.random() * array.length)];
 };
 
-var getWizardsData = function () {
+var getWizardsData = function (quantity) {
   var wizards = [];
-  for (var i = 0; i < WIZARD_QUANTITY; i++) {
+  for (var i = 0; i < quantity; i++) {
     var gamePlayer = {
       name: getRandomElement(WIZARD_NAMES) + ' ' + getRandomElement(WIZARD_SURNAMES),
       coatColor: getRandomElement(COAT_COLORS),
@@ -45,8 +45,8 @@ var renderWizard = function (wizard) {
 
 var getFragment = function (players) {
   var fragment = document.createDocumentFragment();
-  for (var j = 0; j < players.length; j++) {
-    similarListElement.appendChild(renderWizard(players[j]));
+  for (var i = 0; i < players.length; i++) {
+    similarListElement.appendChild(renderWizard(players[i]));
   }
   return fragment;
 };
