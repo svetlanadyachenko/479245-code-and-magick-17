@@ -20,7 +20,7 @@ var getRandomNumber = function (arrayLength) {
 
 var wizards = [];
 
-for (i = 0; i < WIZARD_QUANTITY; i++) {
+for (var i = 0; i < WIZARD_QUANTITY; i++) {
   var nameRand = getRandomNumber(WIZARD_NAMES.length);
   var coatColorRand = getRandomNumber(COAT_COLORS.length);
   var eyesColorRand = getRandomNumber(EYES_COLORS.length);
@@ -44,11 +44,13 @@ var renderWizard = function () {
   return wizardElement;
 };
 
-var fragment = document.createDocumentFragment();
-for (var i = 0; i < wizards.length; i++) {
-  fragment.appendChild(renderWizard(wizards[i]));
-}
+var getFragment = function (fragment) {
+  for (i = 0; i < wizards.length; i++) {
+    fragment.appendChild(renderWizard(wizards[i]));
+  }
+  return fragment;
+};
 
-similarListElement.appendChild(fragment);
+similarListElement.appendChild(getFragment(document.createDocumentFragment()));
 
 userDialog.querySelector('.setup-similar').classList.remove('hidden');
