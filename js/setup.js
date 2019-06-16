@@ -14,26 +14,24 @@ var COAT_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161
 var EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
 var WIZARD_QUANTITY = 4;
 
-var getRandomNumber = function (array) {
-  var random = Math.floor(Math.random() * array.length);
-  return random;
+var getRandomElement = function (array) {
+  return array[Math.floor(Math.random() * array.length)];
 };
 
-var wizards = [];
+var getWizardsData = function () {
+  var wizards = [];
+  for (var i = 0; i < WIZARD_QUANTITY; i++) {
+    var gamePlayer = {
+      name: getRandomElement(WIZARD_NAMES) + ' ' + getRandomElement(WIZARD_SURNAMES),
+      coatColor: getRandomElement(COAT_COLORS),
+      eyesColor: getRandomElement(EYES_COLORS)
+    };
+    wizards[i] = gamePlayer;
+  }
+  return wizards;
+};
 
-for (var i = 0; i < WIZARD_QUANTITY; i++) {
-  var nameRandom = getRandomNumber(WIZARD_NAMES);
-  var coatColorRandom = getRandomNumber(COAT_COLORS);
-  var eyesColorRandom = getRandomNumber(EYES_COLORS);
-
-  var gamePlayer = {
-    name: WIZARD_NAMES[nameRandom] + ' ' + WIZARD_SURNAMES[nameRandom],
-    coatColor: COAT_COLORS[coatColorRandom],
-    eyesColor: EYES_COLORS[eyesColorRandom]
-  };
-
-  wizards[i] = gamePlayer;
-}
+var wizards = getWizardsData(WIZARD_QUANTITY);
 
 var renderWizard = function (wizard) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
@@ -45,14 +43,14 @@ var renderWizard = function (wizard) {
   return wizardElement;
 };
 
-var getFragment = function () {
+var getFragment = function (players) {
   var fragment = document.createDocumentFragment();
-  for (i = 0; i < wizards.length; i++) {
-    similarListElement.appendChild(renderWizard(wizards[i]));
+  for (var j = 0; j < players.length; j++) {
+    similarListElement.appendChild(renderWizard(players[j]));
   }
   return fragment;
 };
 
-similarListElement.appendChild(getFragment());
+similarListElement.appendChild(getFragment(wizards));
 
 userDialog.querySelector('.setup-similar').classList.remove('hidden');
