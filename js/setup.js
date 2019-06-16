@@ -10,22 +10,28 @@ var similarWizardTemplate = document.querySelector('#similar-wizard-template')
 
 var WIZARD_NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
 var WIZARD_SURNAMES = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
-var coatColor = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
-var eyesColor = ['black', 'red', 'blue', 'yellow', 'green'];
+var COAT_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
+var EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
+var WIZARD_QUANTITY = 4;
 
-var GamePlayer = function (n, c, e) {
-  this.name = n;
-  this.coatColor = c;
-  this.eyesColor = e;
+var getRandomNumber = function (numberLength) {
+  return Math.floor(Math.random() * numberLength);
 };
+
 var wizards = [];
 
-for (i = 0; i < 4; i++) {
-  var nameRand = Math.floor(Math.random() * WIZARD_NAMES.length);
-  var coatColorRand = Math.floor(Math.random() * coatColor.length);
-  var eyesColorRand = Math.floor(Math.random() * eyesColor.length);
+for (i = 0; i < WIZARD_QUANTITY; i++) {
+  var nameRand = getRandomNumber(WIZARD_NAMES.length);
+  var coatColorRand = getRandomNumber(COAT_COLORS.length);
+  var eyesColorRand = getRandomNumber(EYES_COLORS.length);
 
-  wizards[i] = new GamePlayer(WIZARD_NAMES[nameRand] + ' ' + WIZARD_SURNAMES[nameRand], coatColor[coatColorRand], eyesColor[eyesColorRand]);
+  var gamePlayer = {
+    name: WIZARD_NAMES[nameRand] + ' ' + WIZARD_SURNAMES[nameRand],
+    coatColor: COAT_COLORS[coatColorRand],
+    eyesColor: EYES_COLORS[eyesColorRand]
+  };
+
+  wizards[i] = gamePlayer;
 }
 
 var renderWizard = function () {
