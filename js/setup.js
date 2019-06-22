@@ -27,9 +27,6 @@ var closePopup = function () {
 var onPopupEscPress = function (evt) {
   if (userNameInput !== document.activeElement && evt.keyCode === ESC_KEYCODE) {
     closePopup();
-  } else {
-    openPopup();
-  }
 };
 
 // var onPopupEscPress = function (evt) {
