@@ -27,17 +27,8 @@ var closePopup = function () {
 var onPopupEscPress = function (evt) {
   if (userNameInput !== document.activeElement && evt.keyCode === ESC_KEYCODE) {
     closePopup();
+  }
 };
-
-// var onPopupEscPress = function (evt) {
-//   if (userNameInput === document.activeElement) {
-//     return evt;
-//   } else {
-//     if (evt.keyCode === ESC_KEYCODE) {
-//       closePopup();
-//     }
-//   }
-// };
 
 setupOpen.addEventListener('click', function () {
   openPopup();
@@ -58,27 +49,6 @@ setupClose.addEventListener('keydown', function (evt) {
     closePopup();
   }
 });
-
-// userNameInput.addEventListener('invalid', function (evt) {
-//   if (userNameInput.validity.tooShort) {
-//     userNameInput.setCustomValidity('Имя должно состоять минимум из 2-х символов');
-//   } else if (userNameInput.validity.tooLong) {
-//     userNameInput.setCustomValidity('Имя не должно превышать 25-ти символов');
-//   } else if (userNameInput.validity.valueMissing) {
-//     userNameInput.setCustomValidity('Обязательное поле');
-//   } else {
-//     userNameInput.setCustomValidity('');
-//   }
-// });
-//
-// userNameInput.addEventListener('input', function (evt) {
-//   var target = evt.target;
-//   if (target.value.length < 2) {
-//     target.setCustomValidity('Имя должно состоять минимум из 2-х символов');
-//   } else {
-//     target.setCustomValidity('');
-//   }
-// });
 
 var similarListElement = document.querySelector('.setup-similar-list');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template')
