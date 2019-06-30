@@ -1,8 +1,8 @@
 'use strict';
 (function () {
 
-  var setup = document.querySelector('.setup');
-  var dialogHandler = setup.querySelector('.upload');
+  window.setupWindow = document.querySelector('.setup');
+  var dialogHandler = window.setupWindow.querySelector('.upload');
 
   dialogHandler.addEventListener('mousedown', function (evt) {
     evt.preventDefault();
@@ -28,8 +28,8 @@
         y: moveEvt.clientY
       };
 
-      setup.style.top = (setup.offsetTop - shift.y) + 'px';
-      setup.style.left = (setup.offsetLeft - shift.x) + 'px';
+      window.setupWindow.style.top = (window.setupWindow.offsetTop - shift.y) + 'px';
+      window.setupWindow.style.left = (window.setupWindow.offsetLeft - shift.x) + 'px';
     };
 
     var onMouseUp = function (upEvt) {
