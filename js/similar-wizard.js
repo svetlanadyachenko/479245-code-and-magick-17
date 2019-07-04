@@ -74,7 +74,7 @@
 
   var form = window.setupWindow.querySelector('.setup-wizard-form');
   form.addEventListener('submit', function (evt) {
-    window.backend.save(new FormData(form), errorHandler, function (response) {
+    window.backend.save(new FormData(form), errorHandler, function () {
       window.setupWindow.classList.add('hidden');
     });
     evt.preventDefault();
