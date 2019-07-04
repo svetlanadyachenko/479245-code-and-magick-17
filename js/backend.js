@@ -2,6 +2,7 @@
 (function () {
   var URL_LOAD = 'https://js.dump.academy/code-and-magick/data';
   var URL_SAVE = 'https://js.dump.academy/code-and-magick';
+
   window.backend = {
     load: function (onLoad, onError) {
       var xhr = new XMLHttpRequest();
