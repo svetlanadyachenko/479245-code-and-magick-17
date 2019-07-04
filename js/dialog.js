@@ -1,7 +1,6 @@
 'use strict';
 (function () {
 
-  window.setupWindow = document.querySelector('.setup');
   var dialogHandler = window.setupWindow.querySelector('.upload');
 
   dialogHandler.addEventListener('mousedown', function (evt) {

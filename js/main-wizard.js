@@ -12,19 +12,19 @@
   var fireballHiddenInput = document.querySelector('input[name="fireball-color"]');
 
   wizardCoat.addEventListener('click', function () {
-    var getWizardCoatColor = window.getRandomElement(window.similarWizard.COAT_COLORS);
+    var getWizardCoatColor = window.similarWizard.getRandomElement(window.similarWizard.COAT_COLORS);
     wizardCoat.style.fill = getWizardCoatColor;
     coatHiddenInput.value = getWizardCoatColor;
   });
 
   wizardEyes.addEventListener('click', function () {
-    var getWizardEyesColor = window.getRandomElement(window.similarWizard.EYES_COLORS);
+    var getWizardEyesColor = window.similarWizard.getRandomElement(window.similarWizard.EYES_COLORS);
     wizardEyes.style.fill = getWizardEyesColor;
     eyesHiddenInput.value = getWizardEyesColor;
   });
 
   wizardFireballWrap.addEventListener('click', function () {
-    var getWizardFireballColor = window.getRandomElement(FIREBALL_COLORS);
+    var getWizardFireballColor = window.similarWizard.getRandomElement(FIREBALL_COLORS);
     wizardFireballWrap.style.background = getWizardFireballColor;
     fireballHiddenInput.value = getWizardFireballColor;
   });
