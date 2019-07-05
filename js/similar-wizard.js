@@ -8,29 +8,11 @@
       return array[Math.floor(Math.random() * array.length)];
     }
   };
-  // var WIZARD_NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
-  // var WIZARD_SURNAMES = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
-  // var WIZARD_QUANTITY = 4;
+  var WIZARD_QUANTITY = 4;
 
   var similarListElement = document.querySelector('.setup-similar-list');
   var similarWizardTemplate = document.querySelector('#similar-wizard-template')
   .content;
-  // .querySelector('.setup-similar-item');
-
-  // var getWizardsData = function (quantity) {
-  //   var wizards = [];
-  //   for (var i = 0; i < quantity; i++) {
-  //     var gamePlayer = {
-  //       name: window.similarWizard.getRandomElement(WIZARD_NAMES) + ' ' + window.similarWizard.getRandomElement(WIZARD_SURNAMES),
-  //       coatColor: window.similarWizard.getRandomElement(window.similarWizard.COAT_COLORS),
-  //       eyesColor: window.similarWizard.getRandomElement(window.similarWizard.EYES_COLORS)
-  //     };
-  //     wizards[i] = gamePlayer;
-  //   }
-  //   return wizards;
-  // };
-
-  // var wizards = getWizardsData(WIZARD_QUANTITY);
 
   var renderWizard = function (wizard) {
     var wizardElement = similarWizardTemplate.cloneNode(true);
@@ -44,7 +26,7 @@
 
   var getFragment = function (data) {
     var fragment = document.createDocumentFragment();
-    for (var i = 0; i < 4; i++) {
+    for (var i = 0; i < WIZARD_QUANTITY; i++) {
       data[i] = window.similarWizard.getRandomElement(data);
       fragment.appendChild(renderWizard(data[i]));
     }
@@ -52,7 +34,6 @@
   };
 
   var loadHandler = function (wizards) {
-    getFragment(wizards);
     similarListElement.appendChild(getFragment(wizards));
     window.setupWindow.querySelector('.setup-similar').classList
       .remove('hidden');
@@ -73,10 +54,12 @@
   window.backend.load(loadHandler, errorHandler);
 
   var form = window.setupWindow.querySelector('.setup-wizard-form');
+  var saveHandler = function () {
+    window.setupWindow.classList.add('hidden');
+  };
+
   form.addEventListener('submit', function (evt) {
-    window.backend.save(new FormData(form), errorHandler, function () {
-      window.setupWindow.classList.add('hidden');
-    });
+    window.backend.save(new FormData(form), saveHandler, errorHandler);
     evt.preventDefault();
   });
 

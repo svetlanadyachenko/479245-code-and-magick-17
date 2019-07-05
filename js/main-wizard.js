@@ -12,20 +12,20 @@
   var fireballHiddenInput = document.querySelector('input[name="fireball-color"]');
 
   wizardCoat.addEventListener('click', function () {
-    var getWizardCoatColor = window.similarWizard.getRandomElement(window.similarWizard.COAT_COLORS);
-    wizardCoat.style.fill = getWizardCoatColor;
-    coatHiddenInput.value = getWizardCoatColor;
+    var wizardCoatColor = window.similarWizard.getRandomElement(window.similarWizard.COAT_COLORS);
+    wizardCoat.style.fill = wizardCoatColor;
+    coatHiddenInput.value = wizardCoatColor;
   });
 
   wizardEyes.addEventListener('click', function () {
-    var getWizardEyesColor = window.similarWizard.getRandomElement(window.similarWizard.EYES_COLORS);
-    wizardEyes.style.fill = getWizardEyesColor;
-    eyesHiddenInput.value = getWizardEyesColor;
+    var wizardEyesColor = window.similarWizard.getRandomElement(window.similarWizard.EYES_COLORS);
+    wizardEyes.style.fill = wizardEyesColor;
+    eyesHiddenInput.value = wizardEyesColor;
   });
 
   wizardFireballWrap.addEventListener('click', function () {
-    var getWizardFireballColor = window.similarWizard.getRandomElement(FIREBALL_COLORS);
-    wizardFireballWrap.style.background = getWizardFireballColor;
-    fireballHiddenInput.value = getWizardFireballColor;
+    var wizardFireballColor = window.similarWizard.getRandomElement(FIREBALL_COLORS);
+    wizardFireballWrap.style.background = wizardFireballColor;
+    fireballHiddenInput.value = wizardFireballColor;
   });
 })();
