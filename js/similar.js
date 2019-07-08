@@ -1,8 +1,10 @@
 'use strict';
 (function () {
 
-  var coatColor;
-  var eyesColor;
+  // var coatColor;
+  // var eyesColor;
+  var coatColor = document.querySelector('input[name="coat-color"]').value;
+  var eyesColor = document.querySelector('input[name="eyes-color"]').value;
   var wizards = [];
 
   var getRank = function (wizard) {

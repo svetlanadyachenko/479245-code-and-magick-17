@@ -19,7 +19,7 @@
   var similarList = document.querySelector('.setup-similar-list');
 
   window.render = function (data) {
-    var takeNumber = data.slice(0, 4);
+    var takeNumber = data.length > 4 ? 4 : data.length;
     similarList.innerHTML = '';
     for (var i = 0; i < takeNumber; i++) {
       similarList.appendChild(renderWizard(data[i]));
