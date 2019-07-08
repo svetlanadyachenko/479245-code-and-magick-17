@@ -1,8 +1,6 @@
 'use strict';
 (function () {
 
-  // var coatColor;
-  // var eyesColor;
   var coatColor = document.querySelector('input[name="coat-color"]').value;
   var eyesColor = document.querySelector('input[name="eyes-color"]').value;
   var wizards = [];
@@ -29,12 +27,18 @@
     }));
   };
 
-  window.wizard.onEyesChange = window.debounce(function (color) {
+  window.similar = {
+    onEyesChange: function () {},
+    onCoatChange: function () {},
+    onFireballChange: function () {}
+  };
+
+  window.similar.onEyesChange = window.debounce(function (color) {
     eyesColor = color;
     updateWizards();
   });
 
-  window.wizard.onCoatChange = window.debounce(function (color) {
+  window.similar.onCoatChange = window.debounce(function (color) {
     coatColor = color;
     updateWizards();
   });
