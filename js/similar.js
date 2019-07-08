@@ -17,16 +17,6 @@
     return rank;
   };
 
-  // var namesComparator = function (left, right) {
-  //   if (left > right) {
-  //     return 1;
-  //   } else if (left < right) {
-  //     return -1;
-  //   } else {
-  //     return 0;
-  //   }
-  // };
-
   var updateWizards = function () {
     window.render(wizards.slice().sort(function (left, right) {
       var rankDiff = getRank(right) - getRank(left);
