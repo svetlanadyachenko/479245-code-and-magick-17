@@ -16,21 +16,21 @@
   wizardCoatElement.addEventListener('click', function () {
     var newColor = getRandomElement(COAT_COLORS);
     wizardCoatElement.style.fill = newColor;
-    window.similar.onCoatChange(newColor);
+    window.similar.getCoatChange(newColor);
   });
 
   var wizardEyesElement = wizardElement.querySelector('.wizard-eyes');
   wizardEyesElement.addEventListener('click', function () {
     var newColor = getRandomElement(EYES_COLORS);
     wizardEyesElement.style.fill = newColor;
-    window.similar.onEyesChange(newColor);
+    window.similar.getEyesChange(newColor);
   });
 
   var wizardFireballElement = document.querySelector('.setup-fireball-wrap');
   wizardFireballElement.addEventListener('click', function () {
     var newColor = getRandomElement(FIREBALL_COLORS);
     wizardFireballElement.style.background = newColor;
-    window.similar.onFireballChange(newColor);
+    window.similar.getFireballChange(newColor);
   });
 
 })();

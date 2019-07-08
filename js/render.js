@@ -19,10 +19,10 @@
   var similarList = document.querySelector('.setup-similar-list');
 
   window.render = function (data) {
-    var takeNumber = data.length > 4 ? 4 : data.length;
+    var limitData = data.slice(0, 4);
     similarList.innerHTML = '';
-    for (var i = 0; i < takeNumber; i++) {
-      similarList.appendChild(renderWizard(data[i]));
+    for (var i = 0; i < limitData.length; i++) {
+      similarList.appendChild(renderWizard(limitData[i]));
     }
     similar.classList.remove('hidden');
   };

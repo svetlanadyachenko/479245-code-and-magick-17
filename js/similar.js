@@ -28,20 +28,32 @@
   };
 
   window.similar = {
-    onEyesChange: function () {},
-    onCoatChange: function () {},
-    onFireballChange: function () {}
+    getEyesChange: window.debounce(function (color) {
+      eyesColor = color;
+      updateWizards();
+    }),
+    getCoatChange: window.debounce(function (color) {
+      coatColor = color;
+      updateWizards();
+    }),
+    getFireballChange: function () {}
   };
 
-  window.similar.onEyesChange = window.debounce(function (color) {
-    eyesColor = color;
-    updateWizards();
-  });
-
-  window.similar.onCoatChange = window.debounce(function (color) {
-    coatColor = color;
-    updateWizards();
-  });
+  // window.similar = {
+  //   onEyesChange: function () {},
+  //   onCoatChange: function () {},
+  //   onFireballChange: function () {}
+  // };
+  //
+  // window.similar.onEyesChange = window.debounce(function (color) {
+  //   eyesColor = color;
+  //   updateWizards();
+  // });
+  //
+  // window.similar.onCoatChange = window.debounce(function (color) {
+  //   coatColor = color;
+  //   updateWizards();
+  // });
 
   var loadHandler = function (data) {
     wizards = data;
